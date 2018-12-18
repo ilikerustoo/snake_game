@@ -1,9 +1,10 @@
 from pygame.locals import *
 from random import randint
-import pygame
 import time
+import pygame
 
-class Apple:
+
+class Snack:
     x = 0
     y = 0
     step = 44
@@ -20,8 +21,8 @@ class Player:
     x = [0]
     y = [0]
     step = 44
-    direction = 0
     length = 3
+    direction = 0
 
     updateCountMax = 2
     updateCount = 0
@@ -58,7 +59,7 @@ class Player:
 
             self.updateCount = 0
 
-
+#Directions
     def moveRight(self):
         self.direction = 0
 
@@ -75,6 +76,7 @@ class Player:
         for i in range(0,self.length):
             surface.blit(image,(self.x[i],self.y[i]))
 
+#Is the snack colliding?
 class Game:
     def isCollision(self,x1,y1,x2,y2,bsize):
         if x1 >= x2 and x1 <= x2 + bsize:
@@ -82,21 +84,21 @@ class Game:
                 return True
         return False
 
-class App:
+class Snackies:
 
-    windowWidth = 800
     windowHeight = 600
+    windowWidth = 800
     player = 0
-    apple = 0
+    snack = 0
 
     def __init__(self):
         self._running = True
         self._display_surf = None
         self._image_surf = None
-        self._apple_surf = None
+        self._snack_surf = None
         self.game = Game()
         self.player = Player(3)
-        self.apple = Apple(5,5)
+        self.snack = Snack(5,5)
 
     def on_init(self):
         pygame.init()
@@ -104,8 +106,8 @@ class App:
 
         pygame.display.set_caption('Pygame pythonspot.com example')
         self._running = True
-        self._image_surf = pygame.image.load("block.png").convert()
-        self._apple_surf = pygame.image.load("block.png").convert()
+        self._image_surf = pygame.image.load("block.jpg").convert()
+        self._snack_surf = pygame.image.load("block.jpg").convert()
 
     def on_event(self, event):
         if event.type == QUIT:
@@ -114,15 +116,13 @@ class App:
     def on_loop(self):
         self.player.update()
 
-        # does snake eat apple?
+
         for i in range(0,self.player.length):
-            if self.game.isCollision(self.apple.x,self.apple.y,self.player.x[i], self.player.y[i],44):
-                self.apple.x = randint(2,9) * 44
-                self.apple.y = randint(2,9) * 44
+            if self.game.isCollision(self.snack.x,self.snack.y,self.player.x[i], self.player.y[i],44):
+                self.snack.x = randint(2,9) * 44
+                self.snack.y = randint(2,9) * 44
                 self.player.length = self.player.length + 1
 
-
-        # does snake collide with itself?
         for i in range(2,self.player.length):
             if self.game.isCollision(self.player.x[0],self.player.y[0],self.player.x[i], self.player.y[i],40):
                 print("You lose! Collision: ")
@@ -135,7 +135,7 @@ class App:
     def on_render(self):
         self._display_surf.fill((0,0,0))
         self.player.draw(self._display_surf, self._image_surf)
-        self.apple.draw(self._display_surf, self._apple_surf)
+        self.snack.draw(self._display_surf, self._snack_surf)
         pygame.display.flip()
 
     def on_cleanup(self):
@@ -171,5 +171,10 @@ class App:
         self.on_cleanup()
 
 if __name__ == "__main__" :
-    theApp = App()
-    theApp.on_execute()
+    theSnackies = Snackies()
+    theSnackies.on_execute()
+
+
+
+
+#Help taken from https://pythonspot.com/snake-with-pygame/
