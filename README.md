@@ -2,16 +2,16 @@
 
 Simply run snake_game.py e.g python3 snake_game.py
 
-# Requirements
+## Requirements
 
 Must have python3 or above
 Must have the pygame library installed
 
-# Controls
+## Controls
 
 Use the arrow keys to control the snake
 
-# Rules
+## Rules
 
 [1] Eat blocks to grow larger
 [2] Avoid running into yourself
