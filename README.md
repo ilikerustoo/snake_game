@@ -1,6 +1,11 @@
 # Snake Game
 
+This is a snake game written in python
+
+## How to run
+
 Simply run snake_game.py
+
 Command: python3 snake_game.py
 
 ## Requirements
