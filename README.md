@@ -2,7 +2,7 @@
 
 Simply run snake_game.py
 
-command: python3 snake_game.py
+Command: python3 snake_game.py
 
 ## Requirements
 
@@ -15,6 +15,5 @@ Use the arrow keys to control the snake
 
 ## Rules
 
-1. Eat blocks to grow larger
-2. Avoid running into yourself
-git 
+- Eat blocks to grow larger
+- Avoid running into yourself
