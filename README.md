@@ -1,8 +1,7 @@
 # Snake Game
 
 Simply run snake_game.py
-
-command: python3 snake_game.py
+Command: python3 snake_game.py
 
 ## Requirements
 
