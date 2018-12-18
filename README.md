@@ -14,5 +14,5 @@ Use the arrow keys to control the snake
 
 ## Rules
 
-1. Eat blocks to grow larger
-2. Avoid running into yourself
+- Eat blocks to grow larger
+- Avoid running into yourself
